@@ -49,8 +49,6 @@ int count_primes(int n) {
     }
   }
 
-  std::cout << "Calculation finished. Press ENTER to continue...";
-  std::cin.get();
   return count;
 }
 
