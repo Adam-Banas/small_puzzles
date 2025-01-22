@@ -1,1 +1,4 @@
-add_executable(sieve sieve.cpp)
+add_executable(
+    sieve
+    sieve.cpp
+)
