@@ -17,7 +17,12 @@ INSTANTIATE_TEST_SUITE_P(QuickTest, SolutionTest,
                                            std::make_tuple("ABBB", "BBBA", 3),
                                            std::make_tuple("ABCDE", "ABC", 3)));
 
-INSTANTIATE_TEST_CASE_P(LongRunningTest, SolutionTest,
-                        ::testing::Values(std::make_tuple(
-                            "ABCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaDEFG",
-                            "ABCbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbDEFG", 7)));
+INSTANTIATE_TEST_CASE_P(
+    LongRunningTest, SolutionTest,
+    ::testing::Values(
+        std::make_tuple("ABCaaaaaaaaaaDEFG", "ABCbbbbbbbbbbDEFG", 7),
+        std::make_tuple("ABCaaaaaaaaaaaDEFG", "ABCbbbbbbbbbbbDEFG", 7),
+        std::make_tuple("ABCaaaaaaaaaaaaDEFG", "ABCbbbbbbbbbbbbDEFG", 7),
+        std::make_tuple("ABCaaaaaaaaaaaaaaaaaDEFG", "ABCbbbbbbbbbbbbbbbbbDEFG", 7),
+        std::make_tuple("ABCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaDEFG",
+                        "ABCbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbDEFG", 7)));

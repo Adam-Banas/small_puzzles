@@ -19,7 +19,7 @@ target_link_libraries(
             lcs_solution
 )
 
-# Enable CMake's test runner to discover the tests
-# (usage, when built: cd tests && ctest)
-include(GoogleTest)
-gtest_discover_tests(lcs_tests)
+# Add test suite for ctest, set timeout
+# (usage, when built: cd tests && ctest [-V])
+add_test(NAME lcs_test_suite COMMAND lcs_tests)
+set_tests_properties(lcs_test_suite PROPERTIES TIMEOUT 10)
