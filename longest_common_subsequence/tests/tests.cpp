@@ -12,10 +12,12 @@ TEST_P(SolutionTest, Simple) {
     EXPECT_EQ(expected_length, lcs(a, b));
 }
 
-INSTANTIATE_TEST_SUITE_P(
-    SolutionTest, SolutionTest,
-    ::testing::Values(
-        std::make_tuple("ABCDA", "ACBDA", 4), std::make_tuple("ABBB", "BBBA", 3),
-        std::make_tuple("ABCDE", "ABC", 3),
-        std::make_tuple("ABCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaDEFG",
-                        "ABCbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbDEFG", 7)));
+INSTANTIATE_TEST_SUITE_P(QuickTest, SolutionTest,
+                         ::testing::Values(std::make_tuple("ABCDA", "ACBDA", 4),
+                                           std::make_tuple("ABBB", "BBBA", 3),
+                                           std::make_tuple("ABCDE", "ABC", 3)));
+
+INSTANTIATE_TEST_CASE_P(LongRunningTest, SolutionTest,
+                        ::testing::Values(std::make_tuple(
+                            "ABCaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaDEFG",
+                            "ABCbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbDEFG", 7)));
